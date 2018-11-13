@@ -1,0 +1,11 @@
+{
+  "name": "clippy-cli",
+  "version": "1.0.0",
+  "description": "Command-line interface to the CLIPPY global clipboard",
+  "main": "index.js",
+  "scripts": {
+    "test": "tst"
+  },
+  "author": "Keaton Ufheil",
+  "license": "ISC"
+}
