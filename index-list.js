@@ -1,4 +1,4 @@
-let getModule = require('./get-clipboards');
+let getModule = require('./util/get-clipboards');
 var get = getModule.getClipboards;
 
 var user = 'samuel';
