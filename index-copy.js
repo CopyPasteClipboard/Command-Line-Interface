@@ -10,7 +10,7 @@ program
 // the board the user wants to copy to
 var board = program.args[0];
 
-clipped = clipboardy.readSync();
+var clipped = clipboardy.readSync();
 console.log(clipped);
 
 creds.checkCredentials(() => {
