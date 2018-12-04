@@ -5,6 +5,7 @@ module.exports = {
     // get the contents of the board specified by boardId from the global
     // clipboard. returns a Promise of the HTTPS request to this resource
     getFromClipboard: async function(boardId) {
+        const fetch = require('node-fetch');
         var getURL = `${AWS_BASE_URL}v1/clipboard/${boardId}?type=mostRecent||type=all`;
         var content = {
             method: 'GET',

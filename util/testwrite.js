@@ -1,4 +1,4 @@
 const creds = require('./manage-credentials');
 
-prmpt = creds.checkCredentials;
-prmpt();
+prmpt = creds.getCredentials;
+console.log(prmpt());

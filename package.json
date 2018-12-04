@@ -7,5 +7,9 @@
     "test": "tst"
   },
   "author": "Keaton Ufheil",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "clipboardy": "^1.2.3",
+    "commander": "^2.19.0"
+  }
 }

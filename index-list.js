@@ -1,11 +1,15 @@
-let getModule = require('./util/get-clipboards');
-var get = getModule.getClipboards;
+const creds = require('./util/manage-credentials');
+const getClipboards = require('./util/get-clipboards').getClipboards;
 
-var user = 'samuel';
+creds.checkCredentials(() => {
+    creds.getCredentials()
+        .then(userId => {
+            getClipboards(userId)
+                .then(clipboards => {
+                    for (board of clipboards) {
+                        console.log(board[0]);
+                    }
+                });
+        });
 
-get(user)
-    .then(clipboards => {
-        for (board of clipboards) {
-            console.log(board[0]);
-        }
-    });
+});
