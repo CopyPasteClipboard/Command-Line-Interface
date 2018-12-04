@@ -1,11 +1,12 @@
-AWS_BASE_URL = 'http://ec2-54-173-123-45.compute-1.amazonaws.com:8080/'
+const fs = require('fs');
+AWS_BASE_URL = JSON.parse(fs.readFileSync('url.json', 'utf8'))['url'];
 
 module.exports = {
     // copy the item clipped to the board specified by boardId
     sendToClipboard: async function(clipped, boardId) {
         const fetch = require('node-fetch');
-        var postURL = `${AWS_BASE_URL}/v1/clipboard/${boardId}/boarditem`;
-        item = {'new_item': clipped};
+        var postURL = `${AWS_BASE_URL}v1/clipboard/${boardId}/boarditem`;
+        var item = {'new_item': clipped};
         content = {
             method: 'POST',
             headers: {
@@ -15,7 +16,7 @@ module.exports = {
             body: JSON.stringify(item)
         }
 
-        return fetch(postURL, content)
+        fetch(postURL, content)
             .then(console.log('Successfully added to board'))
             .catch(err => console.log(err));    
     }   

@@ -1,4 +1,5 @@
-AWS_BASE_URL = 'http://ec2-54-173-123-45.compute-1.amazonaws.com:8080/'
+const fs = require('fs');
+AWS_BASE_URL = JSON.parse(fs.readFileSync('url.json', 'utf8'))['url'];
 
 module.exports = {
     // get all clipboards belonging to user
@@ -7,12 +8,12 @@ module.exports = {
     getClipboards: async function(userId) {
         const fetch = require('node-fetch');
         var getURL = `${AWS_BASE_URL}v1/user/${userId}/clipboards`;
-        content = {
+        var content = {
                 method: 'GET',
                 headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
-                };
+                }
         };
          
         return fetch(getURL, content)

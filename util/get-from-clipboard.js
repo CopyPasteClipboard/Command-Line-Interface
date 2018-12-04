@@ -1,4 +1,5 @@
-AWS_BASE_URL = 'http://ec2-54-173-123-45.compute-1.amazonaws.com:8080/'
+const fs = require('fs');
+AWS_BASE_URL = JSON.parse(fs.readFileSync('url.json', 'utf8'))['url'];
 
 module.exports = {
     // get the contents of the board specified by boardId from the global
