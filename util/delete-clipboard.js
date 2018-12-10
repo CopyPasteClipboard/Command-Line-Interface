@@ -15,7 +15,6 @@ module.exports = {
         };
 
         fetch(deleteURL, content)
-            .then(console.log('Successfully deleted board'))
             .catch(err => console.log(err)); 
     }
 }

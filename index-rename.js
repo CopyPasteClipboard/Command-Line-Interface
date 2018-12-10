@@ -1,16 +1,16 @@
 const program = require('commander');
-const clipboardy = require('clipboardy');
 const creds = require('./util/manage-credentials');
 const getClipboards = require('./util/get-clipboards').getClipboards;
-const sendToClipboard = require('./util/send-to-clipboard').sendToClipboard;
+const renameClipboard = require('./util/rename-clipboard').renameClipboard;
 
 program
     .parse(process.argv);
 
-// the board the user wants to copy to
-var board = program.args[0];
+// the board the user wants to rename
+var oldBoard = program.args[0];
 
-var clipped = clipboardy.readSync();
+// the new name
+var newBoard = program.args[1];
 
 creds.checkCredentials(() => {
     creds.getCredentials()
@@ -20,9 +20,9 @@ creds.checkCredentials(() => {
                     // search user's clipboards for one that matches their
                     // requested clipboard
                     for (clipboard of clipboards) {
-                       if (clipboard['board_name'] === board) {
-                            sendToClipboard(clipped, clipboard['id']);
-                            console.log('Clipboard updated successfully');
+                       if (clipboard['board_name'] === oldBoard) {
+                            renameClipboard(clipboard['id'], newBoard);
+                            console.log('Clipboard renamed successfully');
                             // only one should match, so it's safe to return
                             return;
                         } 
@@ -30,4 +30,3 @@ creds.checkCredentials(() => {
                 });
         });
 });
-                

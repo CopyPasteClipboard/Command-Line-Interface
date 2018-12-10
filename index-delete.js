@@ -1,16 +1,13 @@
 const program = require('commander');
-const clipboardy = require('clipboardy');
 const creds = require('./util/manage-credentials');
 const getClipboards = require('./util/get-clipboards').getClipboards;
-const sendToClipboard = require('./util/send-to-clipboard').sendToClipboard;
+const deleteClipboard = require('./util/delete-clipboard').deleteClipboard;
 
 program
     .parse(process.argv);
 
-// the board the user wants to copy to
+// the board the user wants to delete
 var board = program.args[0];
-
-var clipped = clipboardy.readSync();
 
 creds.checkCredentials(() => {
     creds.getCredentials()
@@ -21,8 +18,8 @@ creds.checkCredentials(() => {
                     // requested clipboard
                     for (clipboard of clipboards) {
                        if (clipboard['board_name'] === board) {
-                            sendToClipboard(clipped, clipboard['id']);
-                            console.log('Clipboard updated successfully');
+                            deleteClipboard(clipboard['id']);
+                            console.log('Clipboard successfully annihilated!');
                             // only one should match, so it's safe to return
                             return;
                         } 
@@ -30,4 +27,3 @@ creds.checkCredentials(() => {
                 });
         });
 });
-                

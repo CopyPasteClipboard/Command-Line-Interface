@@ -6,7 +6,7 @@ module.exports = {
     sendToClipboard: async function(clipped, boardId) {
         const fetch = require('node-fetch');
         var postURL = `${AWS_BASE_URL}v1/clipboard/${boardId}/boarditem`;
-        var item = {'new_item': clipped};
+        var item = {'board_item': clipped};
         content = {
             method: 'POST',
             headers: {
@@ -17,7 +17,6 @@ module.exports = {
         }
 
         fetch(postURL, content)
-            .then(console.log('Successfully added to board'))
             .catch(err => console.log(err));    
     }   
 }

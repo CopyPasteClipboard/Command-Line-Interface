@@ -7,7 +7,7 @@ creds.checkCredentials(() => {
             getClipboards(userId)
                 .then(clipboards => {
                     for (board of clipboards) {
-                        console.log(board[0]);
+                        console.log(board['board_name']);
                     }
                 });
         });

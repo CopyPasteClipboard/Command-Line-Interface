@@ -7,7 +7,7 @@ module.exports = {
         const fetch = require('node-fetch');
         var postURL = `${AWS_BASE_URL}v1/clipboard`;
         var boardInfo = {
-            'boardname': boardname,
+            'board_name': boardname,
             'user_id': userId
         };
         content = {
@@ -20,7 +20,6 @@ module.exports = {
         };
 
         fetch(postURL, content)
-            .then(console.log('Successfully created board'))
             .catch(err => console.log(err)); 
     }
 }
