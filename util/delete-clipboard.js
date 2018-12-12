@@ -1,3 +1,7 @@
+/* DELETE CLIPBOARD
+ * Exports function that deletes one of the user's clipboards
+ */
+
 const fs = require('fs');
 AWS_BASE_URL = JSON.parse(fs.readFileSync('url.json', 'utf8'))['url'];
 

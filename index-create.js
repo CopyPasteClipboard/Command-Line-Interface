@@ -1,9 +1,13 @@
+/* INDEX CREATE
+ * Create a new CLIPPY keyboard for the user
+ * Called via index.js
+ */
+
 const program = require('commander');
 const creds = require('./util/manage-credentials');
 const createClipboard = require('./util/create-clipboard').createClipboard;
 
-program
-    .parse(process.argv);
+program.parse(process.argv);
 
 // board user wants to create
 var board = program.args[0]; 

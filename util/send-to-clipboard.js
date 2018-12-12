@@ -1,3 +1,7 @@
+/* SEND TO CLIPBOARD
+ * Exports a function which sends something to one of the user's CLIPPY clipboards
+ */
+
 const fs = require('fs');
 AWS_BASE_URL = JSON.parse(fs.readFileSync('url.json', 'utf8'))['url'];
 

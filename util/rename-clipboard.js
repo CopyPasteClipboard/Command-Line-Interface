@@ -1,3 +1,7 @@
+/* RENAME CLIPBOARD
+ * Exports a function that renames one of the user's CLIPPY clipboards
+ */
+
 const fs = require('fs');
 AWS_BASE_URL = JSON.parse(fs.readFileSync('url.json', 'utf8'))['url'];
 

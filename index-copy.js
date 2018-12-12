@@ -1,10 +1,14 @@
+/* INDEX COPY
+ * Copy something from the user's clipboard into CLIPPY 
+ * Called via index.js
+ */
+
 const program = require('commander');
 const clipboardy = require('clipboardy');
 const introSequence = require('./util/intro-sequence').introSequence;
 const sendToClipboard = require('./util/send-to-clipboard').sendToClipboard;
 
-program
-    .parse(process.argv);
+program.parse(process.argv);
 
 // the board the user wants to copy to
 var board = program.args[0];

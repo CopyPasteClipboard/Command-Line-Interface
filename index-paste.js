@@ -1,3 +1,8 @@
+/* INDEX PASTE
+ * Paste something from one of the user's clipboards into the command line
+ * Called by index.js
+ */
+
 const program = require('commander');
 const clipboardy = require('clipboardy');
 const introSequence = require('./util/intro-sequence').introSequence;

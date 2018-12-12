@@ -1,3 +1,7 @@
+/* CREATE CLIPBOARD
+ * Exports a function which interfaces with CLIPPY to create a new clipboard
+ */
+
 const fs = require('fs');
 AWS_BASE_URL = JSON.parse(fs.readFileSync('url.json', 'utf8'))['url'];
 

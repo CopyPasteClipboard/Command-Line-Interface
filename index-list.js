@@ -1,3 +1,8 @@
+/* INDEX list
+ * List user's CLIPPY clipboards
+ * Called via index.js
+ */
+
 const introSequence = require('./util/intro-sequence').introSequence;
 
 introSequence(clipboards => {

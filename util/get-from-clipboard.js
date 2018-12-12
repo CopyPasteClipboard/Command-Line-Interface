@@ -1,3 +1,7 @@
+/* GET FROM CLIPBOARD
+ * Exports a function that gets the contents of a user's CLIPPY clipboard
+ */
+
 const fs = require('fs');
 AWS_BASE_URL = JSON.parse(fs.readFileSync('url.json', 'utf8'))['url'];
 

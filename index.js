@@ -1,4 +1,10 @@
-let program = require('commander');
+/* INDEX
+ * Sets all of the commands that can be called via the CLI
+ * Per Commander standard the files the actually implement the desired behavior
+ * are located in the same directory with names index-<command>.js
+ */
+
+const program = require('commander');
 
 program
     .command('list', 'list all of your global keyboards')

@@ -1,9 +1,13 @@
+/* INDEX RENAME
+ * Rename one of the user's CLIPPY boards
+ * Called via index.js
+ */
+
 const program = require('commander');
 const introSequence = require('./util/intro-sequence').introSequence;
 const renameClipboard = require('./util/rename-clipboard').renameClipboard;
 
-program
-    .parse(process.argv);
+program.parse(process.argv);
 
 // the board the user wants to rename
 var oldBoard = program.args[0];

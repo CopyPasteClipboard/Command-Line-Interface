@@ -1,5 +1,9 @@
-// manage-credentials.js
-// interface for reading from / supplying user credentials
+/* MANAGE CREDENTIALS
+ * Exports function that check for the existence of a user's CLIPPY credentials in ~/.clippy/credentials.json
+ * and request the user enter their credentials if that file is absent. Also allows for the user to get their 
+ * user-id from the CLIPPY API
+ */
+
 const fs = require('fs');
 const home = require('os').homedir();
 const credentialsDir = `${home}/.clippy/`;

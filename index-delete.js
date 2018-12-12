@@ -1,9 +1,13 @@
+/* INDEX DELETE
+ * Delete one of the user's CLIPPY clipboards
+ * Called via index.js
+ */
+
 const program = require('commander');
 const introSequence = require('./util/intro-sequence').introSequence;
 const deleteClipboard = require('./util/delete-clipboard').deleteClipboard;
 
-program
-    .parse(process.argv);
+program.parse(process.argv);
 
 // the board the user wants to delete
 var board = program.args[0];
