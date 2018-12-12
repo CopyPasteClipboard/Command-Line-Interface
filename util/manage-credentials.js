@@ -10,7 +10,8 @@ module.exports = {
     // check to see if the user's credentials are stored on this machine
     // otherwise, ask for them
     checkCredentials: function(callback){
-        if (!fs.existsSync(credentialsDir)) {
+        if (!fs.existsSync(`${credentialsDir}${fileName}`)) {
+            console.log('Please provide your CLIPPY credentials:');
             // credentials not found. prompt user for them
             const prompt = require('prompt');
             // it's probably best if the password is hidden here
@@ -32,9 +33,9 @@ module.exports = {
                     console.log(err);
                 } else {
                     console.log('Prompted successfully!');
-                    console.log(results.username);
-                    console.log(results.password);
-                    fs.mkdirSync(credentialsDir);
+                    if (!fs.existsSync(credentialsDir)) {
+                        fs.mkdirSync(credentialsDir);
+                    }
                     fs.writeFileSync(`${credentialsDir}${fileName}`, JSON.stringify({'username': results.username, 'password': results.password}));
                 }
                 callback();
@@ -52,7 +53,6 @@ module.exports = {
     getCredentials: async function(){
         const fetch = require('node-fetch'); 
         var username = JSON.parse(fs.readFileSync(`${credentialsDir}${fileName}`, 'utf8'))['username'];
-        username = 'clippyuser';
         var postURL = `${AWS_BASE_URL}v1/login`;
         var content = {
                 method: 'POST',
